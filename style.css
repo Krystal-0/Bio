@@ -137,6 +137,7 @@ p {
     border-radius: 16px;
     padding: 20px;
     margin-top: 10px;
+    max-width: 90%;
 }
 
 .now-playing {

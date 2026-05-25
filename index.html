@@ -1,11 +1,676 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Your Name</title>
-  </head>
-  <body>
-    <h1>Your Name</h1>
-    <a href="https://discord.com/...">Discord</a>
-    <a href="https://...">Whatever else</a>
-  </body>
+<html lang="en">
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
+        <script src="songList.js"></script>
+        
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+        
+        <title>Krystal's Page</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            .container {
+                font-family: "Poppins", sans-serif;
+                color: white;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 20px 20px;
+                max-width: 80%;
+            }
+
+            title {
+                font-size: 24px;
+                font-weight: bold;
+                padding: 40px 20px;
+            }
+
+            body {
+                background: linear-gradient(to bottom right, #000000, #3C1742);
+                min-height: 100vh;
+                background-attachment: fixed;
+            }
+
+            p {
+                font-size: 20px;
+            }
+
+            .margin20 {
+                margin: 20px;
+            }
+
+            .marginTop20 {
+                margin-top: 20px;
+            }
+
+            .marginTop40 {
+                margin-top: 40px;
+            }
+
+            .divider {
+                border: none;
+                height: 1px;
+                background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            .pfp {
+                align-items: center;
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin: 20px;
+            }
+
+            .pronouns {
+                font-size: 14px;
+                opacity: 0.6;
+            }
+
+            .interests {
+                margin-top: 10px;
+                margin-bottom: 20px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+            }
+
+            .interests span {
+                background-color: rgba(255, 255, 255, 0.1);
+                padding: 6px 14px;
+                border-radius: 20px;
+                font-size: 14px;
+                color: white;
+            }
+
+            .card {
+                margin: 10px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 12px;
+                text-decoration: none;
+                color: inherit;
+                padding: 10px;
+                border-radius: 8px;
+                transition: background-color 0.3s ease, padding 0.3s ease;
+            }
+
+            .card:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
+            .cards-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                gap: 12px;
+                width: 100%;
+            }
+
+            .card-img {
+                width: 90px;
+                height: 120px;
+                border-radius: 8px;
+                object-fit: cover;
+            }
+
+            .card-info {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+
+                gap: 4px;
+            }
+
+            .card-title {
+                font-size: 16px;
+                font-weight: bold;
+            }
+
+            .card-desc {
+                font-size: 13px;
+                opacity: 0.7;
+            }
+
+            .music-player {
+                width: 100%;
+                border-radius: 16px;
+                padding: 20px;
+                margin-top: 10px;
+            }
+
+            .now-playing {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+                margin-bottom: 20px;
+            }
+
+            .album-art {
+                width: 150px;
+                height: 150px;
+                border-radius: 12px;
+                object-fit: cover;
+                background: rgba(255, 255, 255, 0.1);
+            }
+
+            .song-info {
+                text-align: center;
+            }
+
+            .song-title {
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            .song-artist {
+                font-size: 14px;
+                opacity: 0.7;
+            }
+
+            .controls {
+                display: flex;
+                gap: 16px;
+                align-items: center;
+                width: 100%;
+            }
+
+            .controls-left {
+                flex: 1;
+            }
+
+            .controls-right {
+                flex: 1;
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            .controls-center {
+                display: flex;
+                gap: 16px;
+                justify-content: center;
+            }
+
+            .control-btn {
+                background: rgba(255, 255, 255, 0.1);
+                border: none;
+                color: white;
+                font-size: 20px;
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                cursor: pointer;
+                transition: background 0.3s ease;
+                line-height: 1;
+            }
+
+            .control-btn:hover {
+                background: rgba(255, 255, 255, 0.2);
+            }
+
+            .progress-bar-container {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                width: 100%;
+            }
+
+            .progress-bar {
+                flex: 1;
+                height: 4px;
+                background: rgba(255, 255, 255, 0.2);
+                border-radius: 2px;
+                cursor: pointer;
+            }
+
+            .progress-fill {
+                height: 100%;
+                background: white;
+                border-radius: 2px;
+                width: 0%;
+                transition: width 0.1s linear;
+            }
+
+            #volumeSlider {
+                width: 80px;
+                accent-color: white;
+                margin-left: 8px;
+            }
+
+            .volume-icon {
+                margin-left: auto;
+            }
+
+            .volume-inline {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+
+            .search-bar {
+                width: 100%;
+                padding: 10px 16px;
+                border-radius: 8px;
+                border: none;
+                background: rgba(255, 255, 255, 0.1);
+                color: white;
+                font-size: 14px;
+                font-family: "Poppins", sans-serif;
+                margin-bottom: 12px;
+                box-sizing: border-box;
+            }
+
+            .search-bar::placeholder {
+                color: rgba(255, 255, 255, 0.4);
+            }
+
+            .search-bar:focus {
+                outline: none;
+                background: rgba(255, 255, 255, 0.15);
+            }
+
+            .playlist {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+                max-height: 300px;
+                overflow-y: scroll;
+            }
+
+            .playlist-item {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 8px 12px;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: background 0.2s ease;
+            }
+
+            .playlist-item:hover {
+                background: rgba(255, 255, 255, 0.1);
+            }
+
+            .playlist-item.active {
+                background: rgba(255, 255, 255, 0.15);
+            }
+
+            .playlist-item-art {
+                width: 40px;
+                height: 40px;
+                border-radius: 6px;
+                object-fit: cover;
+            }
+
+            .playlist-item-info {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .playlist-item-title {
+                font-size: 14px;
+                font-weight: bold;
+            }
+
+            .playlist-item-artist {
+                font-size: 12px;
+                opacity: 0.6;
+            }
+
+            .fanart-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+                gap: 12px;
+                width: 100%;
+                margin-bottom: 20px;
+                max-width: 75%;
+            }
+
+            .fanart-img {
+                width: 100%;
+                border-radius: 12px;
+                object-fit: cover;
+                cursor: pointer;
+                transition: transform 0.2s ease;
+            }
+
+            .fanart-img:hover {
+                transform: scale(1.05);
+            }
+
+            .links {
+                margin-top: 10px;
+            }
+
+            .link {
+                text-align: center;
+                font-size: 18px;
+                color: white;
+                text-decoration: none;
+                background-color: rgba(255, 255, 255, 0.1);
+                padding: 12px 24px;
+                border-radius: 8px;
+                transition: background-color 0.3s ease;
+            }
+
+            .links-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+                gap: 12px;
+                width: 100%;
+            }
+
+            .link:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Krystal</h1>
+            <p class="pronouns">she/her · trans 🏳️‍⚧️</p>
+            <img src="img/pfp.jpg" class="pfp">
+
+            <p class="marginTop20">My interests are:</p>
+            <div class="interests">
+                <span>🎮 Gaming</span>
+                <span>💻 Scripting & Game Development</span>
+                <span>🎵 Music</span>
+            </div>
+
+            <hr class="divider">
+
+            <p class="marginTop20">These are the games I like and enjoy!</p>
+            <div class="cards-container" id="games"></div>
+
+            <hr class="divider">
+
+            <p class="marginTop40">I also like music! Here's a music player that I made that plays the songs in my music folder.</p>
+            <div class="music-player">
+                <div class="now-playing">
+                    <img src="img/music/musicPlaceholder.jpg" class="album-art" id="albumArt">
+                    <div class="song-info">
+                        <p class="song-title" id="songTitle">No song selected</p>
+                        <p class="song-artist" id="songArtist">-</p>
+                    </div>
+                        <div class="controls">
+                            <div class="controls-left"></div>
+                            <div class="controls-center">
+                                <button class="control-btn" id="prevBtn">|◀</button>
+                                <button class="control-btn" id="playBtn">▶</button>
+                                <button class="control-btn" id="nextBtn">▶|</button>
+                            </div>
+                            <div class="controls-right">
+                            <div class="volume-inline">
+                                    <span>🔈</span>
+                                    <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.2">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="progress-bar-container">
+                            <span id="currentTime">0:00</span>
+                            <div class="progress-bar" id="progressBar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <span id="duration">0:00</span>
+                    </div>
+                </div>
+
+                <input type="text" class="search-bar" id="searchBar" placeholder="🔍 Search songs...">
+
+                <div class="playlist" id="playlist"></div>
+            </div>
+
+            <hr class="divider">
+            
+            <p class="margin20">I got amazing friends that draws me sometimes! Here are some of their fanarts of me:</p>
+            <div class="fanart-container" id="fanart"></div>
+
+            <hr class="divider">
+
+            <p class="margin20">Feel free to reach out to me on any of the platforms below!</p>
+            <div class="links">
+                <div class="links-container">
+                    <a href="https://discord.com/users/1302716025413832846" class="link">Discord</a>
+                    <a href="https://roblox.com/users/259114789/profile" class="link">Roblox</a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const games = [
+                { title: "Paper Lily", desc: "Pixel Graphics, Psychological Horror, Story Rich, Anime", img: "paperLily.jpg", link: "https://store.steampowered.com/app/2220360/Paper_Lily__Chapter_1/" },
+                { title: "Touhou", desc: "Bullet Hell, Shoot 'em up, Shooter, Action, Arcade, 2D", img: "touhou.jpg", link: "https://en.touhouwiki.net/wiki/Touhou_Wiki" },
+                { title: "Roblox", desc: "User Generated, Multiplayer, Free to Play", img: "roblox.jpg", link: "https://roblox.com" },
+                { title: "Deltarune", desc: "Story Rich, Great Soundtrack, Pixel Graphics, Funny, 2D", img: "deltarune.jpg", link: "https://store.steampowered.com/app/1671210/DELTARUNE/" },
+                { title: "Undertale", desc: "Great Soundtrack, Story Rich, Choices Matter, Funny, 2D", img: "undertale.jpg", link: "https://store.steampowered.com/app/391540/Undertale/" },
+                { title: "DEEMO -Reborn-", desc: "Rhythm, Adventure, Puzzle, Music, Beautiful, 3D, VR", img: "deemoReborn.jpg", link: "https://store.steampowered.com/app/1282210/DEEMO_Reborn/" },
+                { title: "A Dance of Fire and Ice", desc: "Rhythm, Music, Difficult, Level Editor, Singleplayer, 2D", img: "adofai.jpg", link: "https://store.steampowered.com/app/977950/A_Dance_of_Fire_and_Ice/" },
+                { title: "Friday Night Funkin'", desc: "Rhythm, Music, Moddable, Singleplayer, 2D", img: "fnf.jpg", link: "https://ninja-muffin24.itch.io/funkin" },
+                { title: "Your Only Move Is HUSTLE", desc: "2D Fighter, Turn-Based Strategy, Action, Strategy, 2D", img: "yomih.jpg", link: "https://store.steampowered.com/app/2212330/Your_Only_Move_Is_HUSTLE/" },
+                { title: "One Step From Eden", desc: "Action Roguelite, Difficult, Deckbuilding, Action", img: "ose.jpg", link: "https://store.steampowered.com/app/960690/One_Step_From_Eden/" },
+                { title: "Limbus Company", desc: "Story Rich, Lore-Rich, Free to Play, Turn-Based Combat", img: "limbusCompany.jpg", link: "https://store.steampowered.com/app/1973530/Limbus_Company/" },
+                { title: "Slime Rancher", desc: "Cute, Exploration, Adventure, Singleplayer, Open World", img: "slimeRancher.jpg", link: "https://store.steampowered.com/app/433340/Slime_Rancher/" },
+                { title: "Balatro", desc: "Card Game, Roguelike Deckbuilder, Deckbuilding", img: "balatro.jpg", link: "https://store.steampowered.com/app/2379780/Balatro/" },
+                { title: "Terraria", desc: "Open World Survival Craft, Sandbox, 2D, Co-op", img: "terraria.jpg", link: "https://store.steampowered.com/app/105600/Terraria/" },
+                { title: "Minecraft", desc: "Sandbox, Survival, Open World, Multiplayer", img: "minecraft.jpg", link: "https://minecraft.net" }
+            ];
+
+            const cardsContainer = document.getElementById("games");
+
+            games.forEach(game => {
+                cardsContainer.innerHTML += `
+                    <a href="${game.link}" target="_blank" class="card">
+                        <img src="img/games/${game.img}" class="card-img">
+                        <div class="card-info">
+                            <p class="card-title">${game.title}</p>
+                            <p class="card-desc">${game.desc}</p>
+                        </div>
+                    </a>
+                `;
+            })
+        </script>
+        
+        <script>
+            const fanart = [
+                { img: "img/fanart/KrystallenBirthday.jpg", artist: "Morgan" },
+                { img: "img/fanart/KrystallenArt2.png", artist: "Morgan" },
+                { img: "img/fanart/Krystal.png", artist: "Morgan" },
+                { img: "img/fanart/KrysTease.jpg", artist: "Morgan" },
+                { img: "img/fanart/TouhouStyle.jpg", artist: "Morgan" }
+            ]
+
+            const fanartContainer = document.getElementById("fanart")
+
+            fanart.forEach(art => {
+                fanartContainer.innerHTML += `
+                    <div class="fanart-card">
+                        <img src="${art.img}" class="fanart-img">
+                        <p class="fanart-artist">by ${art.artist}</p>
+                    </div>
+                `
+            })
+        </script>
+        
+        <script>
+            const audio = new Audio()
+            let currentIndex = 0
+            let filteredSongs = [...songs]
+            audio.volume = 0.2
+
+            function formatTime(seconds) {
+                const m = Math.floor(seconds / 60)
+                const s = Math.floor(seconds % 60).toString().padStart(2, "0")
+                return `${m}:${s}`
+            }
+
+            function loadSong(index) {
+                const song = filteredSongs[index]
+                audio.src = `music/${encodeURIComponent(song)}`
+
+                readMetadata(`music/${encodeURIComponent(song)}`).then(tag => {
+                    document.getElementById("songTitle").textContent = tag.tags.title || song
+                    document.getElementById("songArtist").textContent = tag.tags.artist || "Unknown Artist"
+
+                    if (tag.tags.picture) {
+                        const uint8Array = new Uint8Array(tag.tags.picture.data)
+                        let base64 = ""
+                        for (let i = 0; i < uint8Array.length; i++) {
+                            base64 += String.fromCharCode(uint8Array[i])
+                        }
+                        base64 = btoa(base64)
+                        const url = `data:${tag.tags.picture.format};base64,${base64}`
+                        document.getElementById("albumArt").src = url
+                    }
+                }).catch(() => {
+                    document.getElementById("songTitle").textContent = song
+                    document.getElementById("songArtist").textContent = "Unknown Artist"
+                })
+
+                document.querySelectorAll(".playlist-item").forEach((item, i) => {
+                    item.classList.toggle("active", i === index)
+                })
+            }
+
+            function playSong(index) {
+                currentIndex = index
+                loadSong(index)
+                audio.play()
+                document.getElementById("playBtn").textContent = "| |"
+            }
+
+            async function readMetadata(src) {
+                return new Promise(async (resolve, reject) => {
+                    try {
+                        const response = await fetch(src)
+                        const blob = await response.blob()
+                        jsmediatags.read(blob, {
+                            onSuccess(tag) { resolve(tag) },
+                            onError(err) { reject(err) }
+                        })
+                    } catch(err) {
+                        reject(err)
+                    }
+                })
+            }
+
+            async function buildPlaylist(list) {
+                const playlist = document.getElementById("playlist")
+                playlist.innerHTML = ""
+
+                list.forEach((song, index) => {
+                    playlist.innerHTML += `
+                    <div class="playlist-item" onclick="playSong(${index})">
+                        <img src="" class="playlist-item-art">
+                        <div class="playlist-item-info">
+                        <p class="playlist-item-title">${song}</p>
+                        <p class="playlist-item-artist">Loading...</p>
+                        </div>
+                    </div>
+                    `
+                })
+
+                const items = document.querySelectorAll(".playlist-item")
+
+                for (let index = 0; index < list.length; index++) {
+                    const song = list[index]
+
+                    await new Promise(async (resolve) => {
+                        try {
+                            const tag = await readMetadata(`music/${song}`)
+                            if (items[index]) {
+                                items[index].querySelector(".playlist-item-title").textContent = tag.tags.title || song
+                                items[index].querySelector(".playlist-item-artist").textContent = tag.tags.artist || "Unknown"
+
+                                if (tag.tags.picture) {
+                                    console.log(tag.tags.picture.format, tag.tags.picture.data.length)
+                                    try {
+                                        const uint8Array = new Uint8Array(tag.tags.picture.data)
+                                        let base64 = ""
+                                        for (let i = 0; i < uint8Array.length; i++) {
+                                            base64 += String.fromCharCode(uint8Array[i])
+                                        }
+                                        base64 = btoa(base64)
+                                        const url = `data:${tag.tags.picture.format};base64,${base64}`
+                                        items[index].querySelector(".playlist-item-art").src = url
+                                    } catch(err) {
+                                        console.log("Failed on:", song, err)
+                                    }
+                                }
+                            }
+                        } catch(err) {}
+                        resolve()
+                    })
+                }
+            }
+
+            // Controls
+            document.getElementById("playBtn").addEventListener("click", () => {
+                if (audio.paused) {
+                    audio.play()
+                    document.getElementById("playBtn").textContent = "| |"
+                } else {
+                    audio.pause()
+                    document.getElementById("playBtn").textContent = "▶"
+                }
+            })
+
+            document.getElementById("nextBtn").addEventListener("click", () => {
+                currentIndex = (currentIndex + 1) % filteredSongs.length
+                playSong(currentIndex)
+            })
+
+            document.getElementById("prevBtn").addEventListener("click", () => {
+                currentIndex = (currentIndex - 1 + filteredSongs.length) % filteredSongs.length
+                playSong(currentIndex)
+            })
+
+            // Progress bar
+            audio.addEventListener("timeupdate", () => {
+                const progress = (audio.currentTime / audio.duration) * 100
+                document.getElementById("progressFill").style.width = `${progress}%`
+                document.getElementById("currentTime").textContent = formatTime(audio.currentTime)
+                document.getElementById("duration").textContent = formatTime(audio.duration || 0)
+            })
+
+            document.getElementById("progressBar").addEventListener("click", (e) => {
+                const rect = e.target.getBoundingClientRect()
+                const percent = (e.clientX - rect.left) / rect.width
+                audio.currentTime = percent * audio.duration
+            })
+
+            document.getElementById("volumeSlider").addEventListener("input", (e) => {
+                audio.volume = e.target.value
+            })
+
+            // Auto next song
+            audio.addEventListener("ended", () => {
+                currentIndex = (currentIndex + 1) % filteredSongs.length
+                playSong(currentIndex)
+            })
+
+            // Search
+            document.getElementById("searchBar").addEventListener("input", (e) => {
+                const query = e.target.value.toLowerCase()
+                filteredSongs = songs.filter(song => song.toLowerCase().includes(query))
+                buildPlaylist(filteredSongs)
+            })
+
+            // Init
+            buildPlaylist(filteredSongs)
+        </script>
+    </body>
 </html>

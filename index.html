@@ -3,8 +3,8 @@
 
 <head>
     <meta http-equiv="Cache-Control" content="no-cache">
-    <link rel="stylesheet" href="style.css?v=20260525-6">
-    <script src="songList.js?v=20260525-6"></script>
+    <link rel="stylesheet" href="style.css?v=20260525-7">
+    <script src="songList.js?v=20260525-7"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 
@@ -16,7 +16,11 @@
 <body>
     <div class="container">
         <h1>Krystal</h1>
-        <p class="pronouns">she/her · trans 🏳️‍⚧️</p>
+        <div class="meta">
+            <span>she/her · trans 🏳️‍⚧️</span>
+            <span>18 years old</span>
+            <span>single 💔</span>
+        </div>
         <img src="img/pfp.jpg" class="pfp">
 
         <p class="marginTop20">My interests are:</p>
@@ -282,7 +286,7 @@
         })
 
         document.getElementById("progressBar").addEventListener("click", (e) => {
-            const rect = e.target.getBoundingClientRect()
+            const rect = document.getElementById("progressBar").getBoundingClientRect()
             const percent = (e.clientX - rect.left) / rect.width
             audio.currentTime = percent * audio.duration
         })

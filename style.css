@@ -61,7 +61,11 @@ p {
     margin: 20px;
 }
 
-.pronouns {
+.meta {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
     font-size: 14px;
     opacity: 0.6;
 }

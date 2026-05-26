@@ -22,6 +22,7 @@ const songs = [
     "Compass.mp3",
     "Crowning End.mp3",
     "De Kieru.mp3",
+    "Ego Renegade Boy.mp3",
     "Fluquor.mp3",
     "Fly, My Wings.mp3",
     "GLOW UP ERA.mp3",

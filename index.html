@@ -45,6 +45,7 @@
                 <div class="song-info">
                     <p class="song-title" id="songTitle">No song selected</p>
                     <p class="song-artist" id="songArtist">-</p>
+                    <p class="featured-label" id="featuredLabel">⭐ Recently Added</p>
                 </div>
                 <div class="controls">
                     <div class="controls-left"></div>
@@ -150,6 +151,7 @@
         let currentIndex = 0
         let filteredSongs = [...songs]
         audio.volume = 0.2
+        const featuredSong = "Ego Renegade Boy.mp3"
 
         function formatTime(seconds) {
             const m = Math.floor(seconds / 60)
@@ -319,8 +321,25 @@
             buildPlaylist(filteredSongs)
         })
 
-        // Init
+        // Hide featured label
+        function playSong(index) {
+            currentIndex = index
+            loadSong(index)
+            audio.play()
+            document.getElementById("playBtn").textContent = "| |"
+
+            // hide featured label if not the featured song
+            const label = document.getElementById("featuredLabel")
+            if (filteredSongs[index] === featuredSong) {
+                label.style.display = "block"
+            } else {
+                label.style.display = "none"
+            }
+        }
+
+        /// Init
         buildPlaylist(filteredSongs)
+        loadSong(songs.indexOf(featuredSong))
     </script>
 </body>
 

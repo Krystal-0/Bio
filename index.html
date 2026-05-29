@@ -79,6 +79,11 @@
 
         <p class="margin20">I got amazing friends that draw me sometimes! Here are some of their fanarts of me:</p>
         <div class="fanart-container" id="fanart"></div>
+        <div id="lightbox" class="lightbox">
+            <span class="lightbox-close">×</span>
+            <img class="lightbox-img" id="lightbox-img">
+        </div>
+
 
         <hr class="divider">
 
@@ -144,6 +149,25 @@
                     </div>
                 `
         })
+
+        fanartContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('fanart-img')) {
+                document.getElementById('lightbox-img').src = e.target.src
+                document.getElementById('lightbox').classList.add('active')
+            }
+        })
+
+        document.querySelector('.lightbox-close').addEventListener('click', () => {
+            document.getElementById('lightbox').classList.remove('active')
+        })
+
+        // close when clicking the dark background too!
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox') {
+                document.getElementById('lightbox').classList.remove('active')
+            }
+        })
+
     </script>
 
     <script>

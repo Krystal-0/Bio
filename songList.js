@@ -42,6 +42,7 @@ const songs = [
     "In The Blue Of Twilight☆Sky～.mp3",
     "Inflamer.mp3",
     "IT DOESN'T END HERE.mp3",
+    "Lacie's Lullaby.mp3",
     "Last Brutal Sister Flandre S.mp3",
     "Last Resort.mp3",
     "LOOKING GLASS LUMINESCENCE.mp3",

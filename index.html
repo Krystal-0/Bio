@@ -3,8 +3,8 @@
 
 <head>
     <meta http-equiv="Cache-Control" content="no-cache">
-    <link rel="stylesheet" href="style.css?v=20260531-1">
-    <script src="songList.js?v=20260531-1"></script>
+    <link rel="stylesheet" href="style.css?v=20260601-1">
+    <script src="songList.js?v=20260601-1"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 
@@ -131,51 +131,11 @@
     </script>
 
     <script>
-        const fanart = [
-            { img: "img/fanart/KrystallenBirthday.jpg", artist: "Morgan" },
-            { img: "img/fanart/KrystallenArt2.png", artist: "Morgan" },
-            { img: "img/fanart/Krystal.png", artist: "Morgan" },
-            { img: "img/fanart/KrysTease.jpg", artist: "Morgan" },
-            { img: "img/fanart/TouhouStyle.jpg", artist: "Morgan" }
-        ]
-
-        const fanartContainer = document.getElementById("fanart")
-
-        fanart.forEach(art => {
-            fanartContainer.innerHTML += `
-                    <div class="fanart-card">
-                        <img src="${art.img}" class="fanart-img">
-                        <p class="fanart-artist">by ${art.artist}</p>
-                    </div>
-                `
-        })
-
-        fanartContainer.addEventListener('click', (e) => {
-            if (e.target.classList.contains('fanart-img')) {
-                document.getElementById('lightbox-img').src = e.target.src
-                document.getElementById('lightbox').classList.add('active')
-            }
-        })
-
-        document.querySelector('.lightbox-close').addEventListener('click', () => {
-            document.getElementById('lightbox').classList.remove('active')
-        })
-
-        // close when clicking the dark background too!
-        document.getElementById('lightbox').addEventListener('click', (e) => {
-            if (e.target.id === 'lightbox') {
-                document.getElementById('lightbox').classList.remove('active')
-            }
-        })
-
-    </script>
-
-    <script>
         const audio = new Audio()
         let currentIndex = 0
         let filteredSongs = [...songs]
         audio.volume = 0.2
-        const featuredSong = "Lacie's Lullaby.mp3"
+        const featuredSong = "Ego Renegade Boy.mp3"
 
         function formatTime(seconds) {
             const m = Math.floor(seconds / 60)
@@ -376,6 +336,46 @@
             loadSong(songs.indexOf(featuredSong))
             document.getElementById("featuredLabel").style.display = "block"
         }
+    </script>
+
+    <script>
+        const fanart = [
+            { img: "img/fanart/KrystallenBirthday.jpg", artist: "Morgan" },
+            { img: "img/fanart/KrystallenArt2.png", artist: "Morgan" },
+            { img: "img/fanart/Krystal.png", artist: "Morgan" },
+            { img: "img/fanart/KrysTease.jpg", artist: "Morgan" },
+            { img: "img/fanart/TouhouStyle.jpg", artist: "Morgan" }
+        ]
+
+        const fanartContainer = document.getElementById("fanart")
+
+        fanart.forEach(art => {
+            fanartContainer.innerHTML += `
+                    <div class="fanart-card">
+                        <img src="${art.img}" class="fanart-img">
+                        <p class="fanart-artist">by ${art.artist}</p>
+                    </div>
+                `
+        })
+
+        fanartContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('fanart-img')) {
+                document.getElementById('lightbox-img').src = e.target.src
+                document.getElementById('lightbox').classList.add('active')
+            }
+        })
+
+        document.querySelector('.lightbox-close').addEventListener('click', () => {
+            document.getElementById('lightbox').classList.remove('active')
+        })
+
+        // close when clicking the dark background too!
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox') {
+                document.getElementById('lightbox').classList.remove('active')
+            }
+        })
+
     </script>
 </body>
 

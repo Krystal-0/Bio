@@ -66,6 +66,7 @@ const songs = [
     "Quo Vadis.mp3",
     "Release Cut Piano.mp3",
     "Retry Now.mp3",
+    "Ruru's Suicide Show on a Livestream.mp3",
     "Russian Roulette.mp3",
     "Scarlet Police on Ghetto Patrol.mp3",
     "Spoken For.mp3",

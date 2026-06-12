@@ -23,6 +23,12 @@
         </div>
         <img src="img/pfp.jpg" class="pfp">
 
+        <div class="clock-section">
+            <div class="clock-label">🕐 My Current Time</div>
+            <div class="clock-time" id="clockTime">--:--:--</div>
+            <div class="clock-status" id="clockStatus">Loading...</div>
+        </div>
+
         <p class="marginTop20">My interests are:</p>
         <div class="interests">
             <span>🎮 Gaming</span>
@@ -97,6 +103,57 @@
     </div>
 
     <script>
+        function updateClock() {
+            const timezone = 'Atlantic/Canary';
+
+            const now = new Date();
+
+            // Format the time display
+            const timeOpts = {
+                timeZone: timezone,
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            };
+
+            document.getElementById('clockTime').textContent =
+                new Intl.DateTimeFormat('en-US', timeOpts).format(now);
+
+            // Get just the hour for status messages
+            const hour = parseInt(new Intl.DateTimeFormat('en-US', {
+                timeZone: timezone,
+                hour: 'numeric',
+                hour12: false
+            }).format(now));
+
+            // 💬 STATUS MESSAGES - edit these to your liking!
+            let status = '';
+            if (hour >= 9 && hour < 12)
+                status = "Just woke up... probably... 💤";
+            else if (hour >= 12 && hour < 15)
+                status = "Awake and existing! ✨";
+            else if (hour >= 15 && hour < 20)
+                status = "Afternoon vibes ☀️";
+            else if (hour >= 20 && hour < 22)
+                status = "Evening mode activated 🌆";
+            else if (hour >= 22)
+                status = "Should probably sleep soon... 🌙";
+            else if (hour >= 0 && hour < 2)
+                status = "I'm most probably not sleeping lmao 🦉";
+            else if (hour >= 2 && hour < 6)
+                status = "If I'm not currently sleeping go scream at me to! 😭";
+
+            document.getElementById('clockStatus').textContent = status;
+        }
+
+        // Start the clock!
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+
+
+    <script>
         const games = [
             { title: "Paper Lily", desc: "Pixel Graphics, Psychological Horror, Story Rich, Anime", img: "paperLily.jpg", link: "https://store.steampowered.com/app/2220360/Paper_Lily__Chapter_1/" },
             { title: "Touhou", desc: "Bullet Hell, Shoot 'em up, Shooter, Action, Arcade, 2D", img: "touhou.jpg", link: "https://en.touhouwiki.net/wiki/Touhou_Wiki" },
@@ -135,7 +192,7 @@
         let currentIndex = 0
         let filteredSongs = [...songs]
         audio.volume = 0.2
-        const featuredSong = "Ego Renegade Boy.mp3"
+        const featuredSong = "▪︎.mp3"
 
         function formatTime(seconds) {
             const m = Math.floor(seconds / 60)

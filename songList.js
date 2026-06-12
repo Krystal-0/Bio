@@ -47,6 +47,7 @@ const songs = [
     "Last Resort.mp3",
     "LOOKING GLASS LUMINESCENCE.mp3",
     "Looping The Rooms.mp3",
+    "Love-colored Master Spark.mp3",
     "Magnolia.mp3",
     "MAKE THE SKY FALL.mp3",
     "Marigold.mp3",
@@ -86,5 +87,6 @@ const songs = [
     "Violence, Execution.mp3",
     "weathergirl.mp3",
     "world.execute(me);.mp3",
-    "You've Got Mail!.mp3"
+    "You've Got Mail!.mp3",
+    "▪︎.mp3"
 ]

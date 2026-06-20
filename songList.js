@@ -67,6 +67,7 @@ const songs = [
     "Puppet.mp3",
     "Purgatorium.mp3",
     "Quo Vadis.mp3",
+    "Rabbit Hole.mp3",
     "Release Cut Piano.mp3",
     "Retry Now.mp3",
     "Ruru's Suicide Show on a Livestream.mp3",

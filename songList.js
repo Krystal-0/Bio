@@ -24,6 +24,7 @@ const songs = [
     "Crowning End.mp3",
     "De Kieru.mp3",
     "deltaTime.mp3",
+    "dig in.mp3",
     "Ego Renegade Boy.mp3",
     "Exodus.mp3",
     "Fluquor.mp3",

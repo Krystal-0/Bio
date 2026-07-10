@@ -25,6 +25,7 @@ const songs = [
     "Cutie Mew Mew Magic.mp3",
     "De Kieru.mp3",
     "deltaTime.mp3",
+    "Dialnote.mp3",
     "dig in.mp3",
     "Ego Renegade Boy.mp3",
     "Exodus.mp3",

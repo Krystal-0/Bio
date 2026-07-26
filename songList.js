@@ -74,6 +74,7 @@ const songs = [
     "Orbital Love Strike.mp3",
     "Overclocked.mp3",
     "Penumbra Phantasm.mp3",
+    "People People.mp3",
     "Petal Phantasm.mp3",
     "Primrose.mp3",
     "Puppet.mp3",
@@ -110,5 +111,6 @@ const songs = [
     "world.execute(me);.mp3",
     "Xing-Lai Heaven.mp3",
     "You've Got Mail!.mp3",
-    "▪︎.mp3"
+    "▪︎.mp3",
+    "炜WARD ROMANCE.mp3"
 ]

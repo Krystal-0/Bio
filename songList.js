@@ -1,4 +1,5 @@
 const songs = [
+    "'YARARARA'.mp3",
     "1,2,3,4!.mp3",
     "A Bella!.mp3",
     "Abnormality Dancin' Girl [ENGLISH COVER].mp3",
@@ -118,6 +119,7 @@ const songs = [
     "world.execute(me);.mp3",
     "Xing-Lai Heaven.mp3",
     "You've Got Mail!.mp3",
+    "Your Monster.mp3",
     "▪︎.mp3",
     "炜WARD ROMANCE.mp3"
 ]
